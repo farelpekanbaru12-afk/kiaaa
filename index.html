@@ -79,8 +79,7 @@
             padding: 50px 35px;
             border-radius: 35px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 1);
+             border: 1px solid rgba(255, 255, 255, 1);
             animation: fadeInHome 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
@@ -312,9 +311,14 @@
 
     <script>
         const layout = document.getElementById('galleryLayout');
-        const rotations = [-2, 1.5, -1, 2.5, -2.5, 1, -1.5, 2, -1, 1.5, -2, 1, -1.5, 2];
-
-        for (let i = 1; i <= 14; i++) {
+const rotations = [
+-2, 1.5, -1, 2.5, -2.5,
+1, -1.5, 2, -1, 1.5,
+-2, 1, -1.5, 2, -2,
+1.5, -1, 2.5, -2.5, 1,
+-1.5, 2, -1, 1.5, -2
+];
+        for (let i = 1; i <= 25; i++) {
             let card = document.createElement('div');
             card.classList.add('polaroid-card');
             
