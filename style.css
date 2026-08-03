@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -10,24 +12,15 @@ body {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
-    color: #444;
-    background: linear-gradient(135deg, #ffdce8, #ffeef5, #ffffff);
+    color: #4a4238;
+    /* Background warna kertas buku hangat */
+    background: #f7f3ec;
+    background-image: radial-gradient(#e5ddd0 1px, transparent 1px);
+    background-size: 24px 24px;
     position: relative;
 }
 
-/* BACKGROUND BLUR */
-.bg-blur {
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: .5;
-    z-index: -1;
-}
-.blur1 { width: 350px; height: 350px; background: #ff9eb5; top: -80px; left: -100px; }
-.blur2 { width: 300px; height: 300px; background: #ffd4e5; right: -80px; top: 200px; }
-.blur3 { width: 400px; height: 400px; background: #fff0f6; bottom: -120px; left: 30%; }
-
-/* HOME SECTION */
+/* HOME SECTION - SCRAPBOOK STYLE */
 .home {
     min-height: 100vh;
     display: flex;
@@ -37,26 +30,50 @@ body {
 }
 .home-card {
     width: 100%;
-    max-width: 480px;
-    background: rgba(255, 255, 255, .75);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, .8);
-    border-radius: 30px;
-    padding: 40px;
+    max-width: 500px;
+    background: #fffdf9;
+    border: 2px dashed #d6cebf;
+    border-radius: 20px;
+    padding: 45px 35px;
     text-align: center;
-    box-shadow: 0 25px 50px rgba(255, 105, 135, .15);
+    box-shadow: 0 20px 40px rgba(74, 66, 56, 0.08);
+    position: relative;
+}
+
+/* Aksen Selotip di Card Utama */
+.home-card::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: rgba(255, 218, 185, 0.7);
+    border: 1px dashed rgba(200, 160, 120, 0.5);
 }
 
 /* FOTO UTAMA */
 .photo-frame {
-    width: 230px;
+    width: 220px;
     margin: auto;
-    padding: 10px;
+    padding: 10px 10px 25px 10px;
     background: white;
-    border-radius: 18px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
-    transform: rotate(-2deg);
+    border-radius: 4px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: rotate(-3deg);
     transition: .4s;
+    position: relative;
+}
+.photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 20px;
+    background: rgba(255, 192, 203, 0.6);
 }
 .photo-frame:hover {
     transform: rotate(0deg) scale(1.04);
@@ -64,9 +81,9 @@ body {
 .photo-frame img {
     width: 100% !important;
     height: auto !important;
-    object-fit: contain !important;
-    max-height: 280px !important;
-    border-radius: 10px;
+    object-fit: cover !important;
+    max-height: 260px !important;
+    border-radius: 2px;
     display: block;
 }
 
@@ -74,39 +91,39 @@ body {
 .tag {
     display: inline-block;
     margin-top: 25px;
-    padding: 8px 18px;
-    background: #ffe4ee;
-    color: #ff5c8d;
-    border-radius: 50px;
+    padding: 6px 16px;
+    background: #f4ede2;
+    color: #8c7a6b;
+    border-radius: 20px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
 }
 .home h1 {
-    margin-top: 18px;
+    margin-top: 15px;
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    color: #333;
+    font-size: 38px;
+    color: #3d352a;
 }
 .subtitle {
-    margin-top: 12px;
-    color: #777;
-    line-height: 1.7;
+    margin-top: 10px;
+    color: #7a6e60;
+    line-height: 1.6;
+    font-size: 15px;
 }
 
 /* CLOCK & QUOTE */
 #clock {
-    margin-top: 20px;
-    font-size: 15px;
-    color: #ff5c8d;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #a67c52;
     font-weight: 600;
-    line-height: 1.8;
 }
 #quote {
-    margin: 20px 0;
-    color: #666;
-    font-size: 15px;
-    font-style: italic;
-    line-height: 1.8;
+    margin: 18px 0;
+    color: #615546;
+    font-size: 16px;
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
     transition: opacity 0.3s ease;
 }
 
@@ -118,21 +135,18 @@ button {
     font-family: inherit;
 }
 #openAlbum, #backHome {
-    padding: 16px 38px;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #ff6b9d, #ff8fb8);
-    color: #fff;
+    padding: 14px 35px;
+    border-radius: 30px;
+    background: #615546;
+    color: #fffdf9;
     font-size: 15px;
-    font-weight: 600;
-    transition: .35s;
-    box-shadow: 0 18px 35px rgba(255, 105, 135, .25);
+    font-weight: 500;
+    transition: .3s;
+    box-shadow: 0 10px 20px rgba(97, 85, 70, 0.2);
 }
 #openAlbum:hover, #backHome:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 45px rgba(255, 105, 135, .35);
-}
-#openAlbum:active, #backHome:active {
-    transform: scale(.97);
+    background: #4a4238;
+    transform: translateY(-3px);
 }
 
 /* GALLERY SECTION */
@@ -146,48 +160,71 @@ button {
 }
 .gallery-top h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 40px;
+    color: #3d352a;
+    margin-bottom: 8px;
 }
-.gallery-top p { color: #777; font-size: 16px; }
+.gallery-top p { color: #7a6e60; font-size: 15px; }
 .gallery-grid {
     max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
 }
 
-/* PHOTO CARD */
+/* PHOTO CARD - SCRAPBOOK POLAROID DENGAN SELOTIP */
 .gallery-card {
-    background: rgba(255, 255, 255, .9);
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
-    transition: .4s;
+    background: #ffffff;
+    padding: 14px 14px 24px 14px;
+    border-radius: 3px;
+    box-shadow: 0 12px 30px rgba(74, 66, 56, 0.1);
+    transition: 0.4s;
     cursor: pointer;
+    transform: rotate(calc((var(--i, 0)) * 1deg));
+    position: relative;
 }
+
+/* Aksen Washi Tape di setiap kartu foto */
+.gallery-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65px;
+    height: 18px;
+    background: rgba(230, 215, 195, 0.75);
+    z-index: 2;
+}
+
 .gallery-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 60px rgba(255, 105, 135, .20);
+    transform: translateY(-8px) rotate(0deg) scale(1.03);
+    box-shadow: 0 20px 40px rgba(74, 66, 56, 0.18);
+    z-index: 10;
 }
 .gallery-card img {
     width: 100%;
-    height: 320px;
+    height: 270px;
     object-fit: cover;
     display: block;
-    transition: .4s;
+    border-radius: 2px;
 }
-.gallery-card:hover img {
-    transform: scale(1.06);
+
+.polaroid-caption {
+    text-align: center;
+    margin-top: 14px;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: #615546;
+    letter-spacing: 0.5px;
 }
 
 /* LIGHTBOX */
 .lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, .85);
+    background: rgba(40, 35, 30, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,8 +237,8 @@ button {
 .lightbox img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 18px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, .4);
+    border-radius: 8px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     transform: scale(.8);
     transition: .35s;
 }
@@ -210,26 +247,26 @@ button {
     position: absolute;
     top: 30px;
     right: 40px;
-    font-size: 45px;
-    color: white;
+    font-size: 40px;
+    color: #fffdf9;
     cursor: pointer;
     transition: .3s;
 }
-#closeLightbox:hover { transform: rotate(90deg); color: #ff7aa5; }
+#closeLightbox:hover { color: #d6cebf; }
 
 /* FLOATING HEARTS */
 .heart {
     position: fixed;
     bottom: -40px;
-    color: #ff7aa5;
+    color: #d4a373;
     pointer-events: none;
     animation: heartFloat linear forwards;
     z-index: 5;
-    opacity: .75;
+    opacity: .6;
 }
 @keyframes heartFloat {
     0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    15% { opacity: .8; }
+    15% { opacity: .7; }
     100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
 }
 
@@ -237,14 +274,8 @@ button {
 
 @media(max-width: 992px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width: 768px) {
-    .home-card { padding: 30px 22px; }
-    .photo-frame { width: 190px; }
-    .home h1 { font-size: 34px; }
+    .home-card { padding: 30px 20px; }
+    .photo-frame { width: 180px; }
+    .home h1 { font-size: 32px; }
     .gallery-grid { grid-template-columns: 1fr; }
-}
-@media(max-width: 480px) {
-    body { padding: 0; }
-    .home { padding: 20px; }
-    .gallery { padding: 50px 20px; }
-    #openAlbum, #backHome { width: 100%; }
 }

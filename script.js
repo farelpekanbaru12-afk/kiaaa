@@ -1,10 +1,19 @@
-// Generate Gallery 1 - 25
+// Generate Gallery 1 - 25 dengan Gaya Scrapbook Polaroid
 const galleryGrid = document.querySelector('.gallery-grid');
 if (galleryGrid) {
     for (let i = 1; i <= 25; i++) {
         const card = document.createElement('div');
         card.classList.add('gallery-card');
-        card.innerHTML = `<img src="foto${i}.jpg" alt="Foto ${i}" loading="lazy">`;
+        
+        // Kemiringan acak agar tampak natural seperti lembar scrapbook
+        const randomAngle = (Math.random() * 6) - 3; 
+        card.style.setProperty('--i', randomAngle);
+        
+        card.innerHTML = `
+            <img src="foto${i}.jpg" alt="Foto ${i}" loading="lazy">
+            <div class="polaroid-caption"> #${i < 10 ? '0' + i : i} 🤎</div>
+        `;
+        
         card.addEventListener('click', () => openLightbox(`foto${i}.jpg`));
         galleryGrid.appendChild(card);
     }
@@ -15,19 +24,19 @@ function updateClock() {
     const clockElement = document.getElementById('clock');
     if (clockElement) {
         const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
         clockElement.innerHTML = `🕒 ${now.toLocaleDateString('id-ID', options)}`;
     }
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// Quotes
+// Quotes bergaya jurnal
 const quotes = [
-    "\"Setiap foto menyimpan cerita dan keindahannya tersendiri. ✨\"",
-    "\"Koleksi potret pilihan yang diabadikan dalam satu ruang virtual. 📸\"",
-    "\"Abadikan setiap momen terbaikmu dengan penuh gaya. 💫\"",
-    "\"Galeri virtual interaktif untuk seluruh koleksi foto terbaikmu. 🌸\""
+    "\"Setiap foto menyimpan cerita dan kenangan berharga. 🤎\"",
+    "\"Catatan kecil dari lembaran memori pilihan. ✨\"",
+    "\"Mengabadikan detik demi detik menjadi sebuah cerita. 📖\"",
+    "\"Ruang virtual tempat merangkum setiap momen indah. ☕\""
 ];
 let quoteElement = document.getElementById('quote');
 function changeQuote() {
@@ -42,20 +51,20 @@ function changeQuote() {
 }
 setInterval(changeQuote, 5000);
 
-// Floating Hearts
+// Floating Elements
 function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
-    heart.innerHTML = '❤️';
+    heart.innerHTML = '🍂';
     heart.style.left = Math.random() * 100 + 'vw';
-    const size = Math.random() * 15 + 10;
+    const size = Math.random() * 12 + 10;
     heart.style.fontSize = size + 'px';
-    const duration = Math.random() * 4 + 4;
+    const duration = Math.random() * 5 + 4;
     heart.style.animationDuration = duration + 's';
     document.body.appendChild(heart);
     setTimeout(() => heart.remove(), duration * 1000);
 }
-setInterval(createHeart, 400);
+setInterval(createHeart, 600);
 
 // Lightbox
 const lightbox = document.querySelector('.lightbox');
